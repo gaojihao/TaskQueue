@@ -1,10 +1,8 @@
-//
-//  LZTaskQueue.m
-//  xingyujiaoyu
-//
-//  Created by lizhi54 on 2017/6/5.
-//  Copyright © 2017年 com.lizhi1026. All rights reserved.
-//
+/*
+ *LZTaskQueue
+ *
+ *Copyright ©com.lizhi1026. All rights reserved.
+ */
 
 #import "LZTaskQueue.h"
 #import "LZTask+Private.h"
@@ -23,13 +21,30 @@ NSString *const TaskUserInfoKey                 = @"lz_task";
 
 @implementation LZTaskQueue
 
+static LZTaskQueue *_sharedinstance = nil;
+
 + (instancetype)sharedInstance {
+    return [[self alloc] init];
+}
+
++ (instancetype)allocWithZone:(struct _NSZone *)zone{
     static dispatch_once_t onceToken;
-    static LZTaskQueue *_sharedinstance = nil;
+    // 由于alloc方法内部会调用allocWithZone: 所以我们只需要保证在该方法只创建一个对象即可
     dispatch_once(&onceToken, ^{
-        _sharedinstance = [[self alloc] init];
-        [_sharedinstance setAsynchronous:YES];
+        // 只执行1次的代码(这里面默认是线程安全的)
+        _sharedinstance = [super allocWithZone:zone];
     });
+    
+    return _sharedinstance;
+}
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    return _sharedinstance;
+}
+
+- (id)mutableCopyWithZone:(NSZone *)zone
+{
     return _sharedinstance;
 }
 

@@ -1,10 +1,8 @@
-//
-//  LZTask+Private.h
-//  xingyujiaoyu
-//
-//  Created by lizhi54 on 2017/6/5.
-//  Copyright © 2017年 com.lizhi1026. All rights reserved.
-//
+/*
+ *LZTask+Private
+ *
+ *Copyright ©com.lizhi1026. All rights reserved.
+ */
 
 #import "LZTask.h"
 

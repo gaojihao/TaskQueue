@@ -1,10 +1,8 @@
-//
-//  LZTask.h
-//  xingyujiaoyu
-//
-//  Created by lizhi54 on 2017/6/5.
-//  Copyright © 2017年 com.lizhi1026. All rights reserved.
-//
+/*
+ *LZTask
+ *
+ *Copyright ©com.lizhi1026. All rights reserved.
+ */
 
 #import <Foundation/Foundation.h>
 
